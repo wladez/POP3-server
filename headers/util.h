@@ -1,5 +1,5 @@
-#ifndef SMTPSERVER_UTIL_H
-#define SMTPSERVER_UTIL_H
+#ifndef SERVER_UTIL_H
+#define SERVER_UTIL_H
 #include <winsock2.h>
 #include <ws2tcpip.h>
 #include <stdlib.h>
@@ -29,4 +29,4 @@ int recvLine(SOCKET sock, char* buffer, int buffSize);
 int sendLine(int sock, const char* str);
 std::string base64_encode(unsigned char const*, unsigned int len);
 std::string base64_decode(std::string const& s);
-#endif /*SMTPSERVER_UTIL_H*/
+#endif /*SERVER_UTIL_H*/
