@@ -12,7 +12,6 @@ HANDLE mutex;
 HANDLE allhandlers[numCl];
 int numClients = 0;
 
-
 int main(void) {
 	MailHandler mh;
 	//используется для инициализации библиотеки сокетов 

@@ -1,6 +1,5 @@
 #include "headers/util.h"
 
-
 int recvn(SOCKET fd, char *bp, size_t len) {
 	return recv(fd, bp, len, MSG_WAITALL);
 }
@@ -110,7 +109,6 @@ string base64_encode(unsigned char const* bytes_to_encode, unsigned int in_len) 
 			ret += '=';
 
 	}
-
 	return ret;
 
 }
@@ -152,6 +150,5 @@ string base64_decode(string const& encoded_string) {
 
 		for (j = 0; (j < i - 1); j++) ret += char_array_3[j];
 	}
-
 	return ret;
 }

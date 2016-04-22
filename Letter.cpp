@@ -1,6 +1,6 @@
 #include "headers/Letter.h"
 
-
+//пустой конструктор
 Letter::Letter()
 {
 	from = "";

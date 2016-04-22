@@ -8,7 +8,7 @@ class Letter
 public:
 	Letter();
 	~Letter();
-	
+
 	void addFrom(string& fr){
 		from = fr;
 	}
@@ -22,7 +22,7 @@ public:
 	}
 
 	void addTo(string& t){
-			to = t;
+		to = t;
 	}
 
 	string getFrom(){
@@ -40,6 +40,7 @@ public:
 	string getSubject(){
 		return subject;
 	}
+
 private:
 	string from;
 	string to;

@@ -19,9 +19,9 @@ using namespace std;
 #define numCl 2
 
 static const string base64_chars =
-"ABCDEFGHIJKLMNOPQRSTUVWXYZ"
-"abcdefghijklmnopqrstuvwxyz"
-"0123456789+/";
+	"ABCDEFGHIJKLMNOPQRSTUVWXYZ"
+	"abcdefghijklmnopqrstuvwxyz"
+	"0123456789+/";
 
 void writeToLog(string message);
 int recvn(SOCKET fd, char *bp, size_t len);
