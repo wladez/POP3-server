@@ -8,6 +8,7 @@
 #include <fstream>
 #include <string>
 #include <ctime>
+using namespace std;
 
 // Need to link with Ws2_32.lib, Mswsock.lib, and Advapi32.lib
 #pragma comment (lib, "Ws2_32.lib")
@@ -17,16 +18,16 @@
 #define SIZE_OF_BUF 4096
 #define numCl 2
 
-static const std::string base64_chars =
+static const string base64_chars =
 "ABCDEFGHIJKLMNOPQRSTUVWXYZ"
 "abcdefghijklmnopqrstuvwxyz"
 "0123456789+/";
 
-void writeToLog(std::string message);
+void writeToLog(string message);
 int recvn(SOCKET fd, char *bp, size_t len);
 int sendn(SOCKET s, char* buf, int lenbuf, int flags);
 int recvLine(SOCKET sock, char* buffer, int buffSize);
 int sendLine(int sock, const char* str);
-std::string base64_encode(unsigned char const*, unsigned int len);
-std::string base64_decode(std::string const& s);
+string base64_encode(unsigned char const*, unsigned int len);
+string base64_decode(string const& s);
 #endif /*SERVER_UTIL_H*/

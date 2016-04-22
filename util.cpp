@@ -1,5 +1,6 @@
 #include "headers/util.h"
 
+
 int recvn(SOCKET fd, char *bp, size_t len) {
 	return recv(fd, bp, len, MSG_WAITALL);
 }
@@ -7,15 +8,15 @@ int recvn(SOCKET fd, char *bp, size_t len) {
 void writeToLog(std::string message){
 	time_t t = time(0);   // get time now
 	struct tm * now = localtime(&t);
-	std::ofstream(log);
-	log.open("log.txt", std::ios_base::app);
+	ofstream(log);
+	log.open("log.txt", ios_base::app);
 	log << (now->tm_year + 1900) << '-'
 		<< (now->tm_mon + 1) << '-'
 		<< now->tm_mday << '-'
 		<< now->tm_hour << ':'
 		<< now->tm_min
 		<< "  ";
-	log << message << std::endl;
+	log << message << endl;
 	log.close();
 }
 
@@ -25,7 +26,7 @@ int sendn(SOCKET s, char* buf, int lenbuf, int flags) {
 	while (bytesSended < lenbuf)  {
 		n = send(s, buf + bytesSended, lenbuf - bytesSended, flags);
 		if (n < 0) {
-			std::cout<<("Error with send in sendn\n");
+			cout<<("Error with send in sendn\n");
 			break;
 		}
 		bytesSended += n;
@@ -71,8 +72,8 @@ static inline bool is_base64(unsigned char c) {
 	return (isalnum(c) || (c == '+') || (c == '/'));
 }
 
-std::string base64_encode(unsigned char const* bytes_to_encode, unsigned int in_len) {
-	std::string ret;
+string base64_encode(unsigned char const* bytes_to_encode, unsigned int in_len) {
+	string ret;
 	int i = 0;
 	int j = 0;
 	unsigned char char_array_3[3];
@@ -114,13 +115,13 @@ std::string base64_encode(unsigned char const* bytes_to_encode, unsigned int in_
 
 }
 
-std::string base64_decode(std::string const& encoded_string) {
+string base64_decode(string const& encoded_string) {
 	int in_len = encoded_string.size();
 	int i = 0;
 	int j = 0;
 	int in_ = 0;
 	unsigned char char_array_4[4], char_array_3[3];
-	std::string ret;
+	string ret;
 
 	while (in_len-- && (encoded_string[in_] != '=') && is_base64(encoded_string[in_])) {
 		char_array_4[i++] = encoded_string[in_]; in_++;

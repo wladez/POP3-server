@@ -32,7 +32,7 @@ int main(void) {
 	printf("CHECK\n"); //Привязывание сокета конкретному IP и номеру порта
 	struct sockaddr_in sin;
 	sin.sin_addr.s_addr = INADDR_ANY; // используем все интерфейсы
-	sin.sin_port = htons(25); // порт может быть любым кроме зарезервированных
+	sin.sin_port = htons(110); // используем порт протокола POP3
 	sin.sin_family = AF_INET; printf("Try to bind socket -------------------");
 	if (bind(server_socket, (struct sockaddr *)&sin, sizeof(sin)) != 0) {
 		printf("error with bind socket. GetLasterror= %d\n", GetLastError());
