@@ -1,4 +1,3 @@
-//этот заголовочный файл при компил€ции будет подключен только один раз
 #pragma once
 #include <string>
 using namespace std;

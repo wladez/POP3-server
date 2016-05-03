@@ -76,6 +76,7 @@ DWORD WINAPI MailHandler::clientHandler(LPVOID param){
 	closesocket(client_socket);
 }
 
+//процесс аутентификации
 int MailHandler::authentication(SOCKET client_socket, int& status, User& curUser){
 	char buf[SIZE_OF_BUF] = "/0";
 	int len = recvLine(client_socket, buf, SIZE_OF_BUF);
@@ -142,6 +143,7 @@ string MailHandler::connectedUser(User& curUser){
 	return answer;
 }
 
+//ответ на команду STAT
 void MailHandler::status(SOCKET client_socket, User& curUser){
 	int cnt = 0, cap = 0;
 	cnt = curUser.lettersCount();
@@ -151,6 +153,7 @@ void MailHandler::status(SOCKET client_socket, User& curUser){
 	sendLine(client_socket, answer.c_str());
 }
 
+//ответ на команду LIST
 void MailHandler::getList(SOCKET client_socket, string req, User& curUser){
 	string request = req;
 	string answer;
@@ -172,6 +175,7 @@ void MailHandler::getList(SOCKET client_socket, string req, User& curUser){
 	sendLine(client_socket, answer.c_str());
 }
 
+//ответ на команду RETR
 void MailHandler::getMessage(SOCKET client_socket, string req, User& curUser){
 	string request = req;
 	string answer;
@@ -205,6 +209,7 @@ void MailHandler::getMessage(SOCKET client_socket, string req, User& curUser){
 	sendLine(client_socket, answer.c_str());
 }
 
+//ответ на команду DELE
 void MailHandler::deleteMessage(SOCKET client_socket, string req, User& curUser){
 	string request = req;
 	string answer;
@@ -229,6 +234,7 @@ void MailHandler::deleteMessage(SOCKET client_socket, string req, User& curUser)
 	sendLine(client_socket, answer.c_str());
 }
 
+//сброс установленных флагов на удаление
 void MailHandler::reset(SOCKET client_socket, User& curUser){
 	string answer;
 	int cnt = 0;
@@ -243,6 +249,7 @@ void MailHandler::reset(SOCKET client_socket, User& curUser){
 	sendLine(client_socket, answer.c_str());
 }
 
+//завершение сеанса
 void MailHandler::disconnect(SOCKET client_socket, int& status, User& curUser){
 	string answer;
 	int cnt = 0;

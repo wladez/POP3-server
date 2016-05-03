@@ -16,10 +16,12 @@ public:
 		return password;
 	}
 
+	//добавление письма в ящик
 	void addLetter(const Letter& l){
 		box.addLetterToMailbox(l);
 	}
 
+	//удаление письма из ящика
 	void eraseLetter(int num){
 		box.eraseLetterFromMailbox(num);
 	}

@@ -29,5 +29,4 @@ private:
 	vector<User> users;
 	vector<Letter> let;
 };
-
 #endif

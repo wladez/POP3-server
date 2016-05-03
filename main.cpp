@@ -5,7 +5,6 @@
 #include <iostream>
 #include "headers/util.h"
 #include "headers/MailHandler.h"
-
 using namespace std;
 
 HANDLE mutex;

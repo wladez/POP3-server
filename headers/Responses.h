@@ -24,7 +24,7 @@ const char responses[][512] = {
 	{ " messages (" },//18
 	{ "+OK dewey POP3 server signing off (" },//19 ответ на команду QUIT при отсоединении пользователя
 	{ "+OK dewey POP3 server signing off (maildrop empty)" },//20 ответ на команду QUIT при отсоединении пользователя при пустом ящике
-	{ "+OK Capability list follows\r\n" }//21 CAPA
+	{ "+OK Capability list follows\r\n" }//21 CAPA - расширение для POP3
 };
 
 #endif /*SERVER_RESPONSES_H*/

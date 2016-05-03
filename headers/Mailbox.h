@@ -40,6 +40,7 @@ public:
 		return l;
 	}
 
+	//устанавливает флаг
 	void setFlag(int i, bool b){
 		letters.at(i - 1).setMarker(b);
 	}

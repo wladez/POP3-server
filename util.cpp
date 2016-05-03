@@ -44,6 +44,7 @@ int recvLine(SOCKET sock, char* buffer, int buffSize) { //функция приема сообщен
 	return -1;
 }
 
+//отправка сообщения
 int sendLine(int sock, const char* str) {
 	char tempBuf[MAX_STR_LEN];
 	strcpy(tempBuf, str);

@@ -1,6 +1,5 @@
 #include "headers/Mailbox.h"
 
-
 Mailbox::Mailbox()
 {
 }
