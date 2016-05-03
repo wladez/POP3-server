@@ -7,10 +7,9 @@ Letter::Letter()
 	to = "";
 	subject = "";
 	data = "";
+	marker = false;
 }
-
 
 Letter::~Letter()
 {
 }
-   

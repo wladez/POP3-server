@@ -33,7 +33,7 @@ int main(void) {
 	sin.sin_addr.s_addr = INADDR_ANY; // используем все интерфейсы
 	sin.sin_port = htons(110); // используем порт протокола POP3
 	sin.sin_family = AF_INET; printf("Try to bind socket -------------------");
-	if (bind(server_socket, (struct sockaddr *)&sin, sizeof(sin)) != 0) {
+	if (::bind(server_socket, (struct sockaddr *)&sin, sizeof(sin)) == SOCKET_ERROR) {
 		printf("error with bind socket. GetLasterror= %d\n", GetLastError());
 		return 1001;
 	}
@@ -49,23 +49,12 @@ int main(void) {
 	struct sockaddr_in from;
 	int fromlen = sizeof(from); // начинаем "слушать" входящие запросы на подключение
 	int ind = 0;
-    //на каждое подключение к серверному сокету
+	//на каждое подключение к серверному сокету
 	while (SOCKET client_socket = accept(server_socket, (struct sockaddr*)&from, &fromlen)){
-        //создаём новый поток, в котором работает clientHandler() из MailHandler, 
-        //detach отправляет его выполняться независимо от главного потока
+		//создаём новый поток, в котором работает clientHandler() из MailHandler, 
+		//detach отправляет его выполняться независимо от главного потока
 		mh.createThread((LPVOID)client_socket).detach();
-		writeToLog("Client connect to server\n");
-		//allhandlers[numClients] = CreateThread(NULL, 0, foo, (LPVOID)client_socket, CREATE_SUSPENDED, NULL);
-		//numClients++;
-		////if (numClients == numCl){
-		//	LPCWSTR n = L"";
-		//	//mutex = CreateMutex(NULL, FALSE, n);
-		//	for (int i = 0; i<numCl; i++)
-		//		ResumeThread(allhandlers[i]);
-		//	WaitForMultipleObjects(numCl, allhandlers, TRUE, 5000);
-		//	for (int i = 0; i<numCl; i++)
-		//	CloseHandle(mutex);
-		//}
+		cout << "Client connect to server\n" <<endl;
 	}
 	closesocket(server_socket);
 	return 0;

@@ -25,6 +25,11 @@ public:
 		to = t;
 	}
 
+	void setMarker(bool m){
+		marker = m;
+		string t = data;
+	}
+
 	string getFrom(){
 		return from;
 	}
@@ -41,10 +46,15 @@ public:
 		return subject;
 	}
 
+	bool getMarker(){
+		return marker;
+	}
+
 private:
 	string from;
 	string to;
 	string subject;
 	string data;
+	bool marker;//метка письма, изначально должна быть FALSE
 };
 
